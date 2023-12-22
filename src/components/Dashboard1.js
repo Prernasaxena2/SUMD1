@@ -1,30 +1,16 @@
-// Dashboard.js
-import React, { useState } from 'react';
-import UserModal from './UserModal';
+import React from 'react';
 import "./style.css";
 
 const Dashboard = () => {
     const [users, setUsers] = React.useState([]);
-    const [selectedUser, setSelectedUser] = useState(null);
-
-    const openModal = (user) => {
-        setSelectedUser(user);
-    };
-
-    const closeModal = () => {
-        setSelectedUser(null);
-    };
-
     const f = async () => {
         const res = await fetch("https://reqres.in/api/users/");
         const json = await res.json();
         setUsers(json.data);
     };
-
     React.useEffect(() => {
         f();
     }, []);
-
     return (
         <div className="container mx-auto my-8 p-8 bg-white rounded-md shadow-md">
             <h1 className="text-3xl font-semibold mb-6">Hello ReqRes users!</h1>
@@ -35,8 +21,7 @@ const Dashboard = () => {
                             <img
                                 src={user.avatar}
                                 alt={user.first_name}
-                                className="w-20 h-20 object-cover rounded-full mx-auto mb-4 cursor-pointer"
-                                onClick={() => openModal(user)}
+                                className="w-20 h-20 object-cover rounded-full mx-auto mb-4"
                             />
                             <p className="text-xl font-semibold">{user.first_name}</p>
                             <p className="text-gray-600">{user.email}</p>
@@ -46,11 +31,8 @@ const Dashboard = () => {
                     <p>Loading user information...</p>
                 )}
             </div>
-
-            {/* User Modal */}
-            <UserModal isOpen={!!selectedUser} onClose={closeModal} user={selectedUser || {}} />
         </div>
     );
-};
+}
 
-export default Dashboard;
+export default Dashboard
