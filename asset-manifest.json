@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/secure_user_management_dashboard/static/css/main.5c01abbf.css",
+    "main.js": "/secure_user_management_dashboard/static/js/main.683fff2b.js",
+    "index.html": "/secure_user_management_dashboard/index.html",
+    "main.5c01abbf.css.map": "/secure_user_management_dashboard/static/css/main.5c01abbf.css.map",
+    "main.683fff2b.js.map": "/secure_user_management_dashboard/static/js/main.683fff2b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5c01abbf.css",
+    "static/js/main.683fff2b.js"
+  ]
+}
